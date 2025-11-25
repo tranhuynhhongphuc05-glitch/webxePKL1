@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Chi tiết xe • PKL Motor — Showroom Ultra</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root {
+  --accent1: #ff1e28;
+  --accent2: #ff4c4c;
+  --muted: #9da9b9;
+}
+
+body {
+  background: linear-gradient(180deg, #050609 0%, #0a0c10 100%);
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #e8edf7;
+}
+
+header {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 28px; border-bottom:1px solid rgba(255,255,255,0.05);
+}
+nav a {margin-left:16px;color:var(--muted);text-decoration:none;transition:0.3s;}
+nav a:hover {color:#fff;}
+
+.wrap{max-width:1200px;margin:40px auto;padding:0 20px;}
+.showroom{display:grid;grid-template-columns:55% 45%;gap:36px;align-items:center;}
+@media(max-width:900px){.showroom{grid-template-columns:1fr;gap:24px;}}
+
+/* Stage + Glow */
+.stage{position:relative;}
+.floor{
+  position:absolute; bottom:-35px; left:50%; transform:translateX(-50%);
+  width:80%; height:70px; border-radius:50%;
+  background: radial-gradient(ellipse, rgba(255,30,30,0.4), rgba(255,100,40,0.15), transparent);
+  filter: blur(18px); z-index:1; animation: floorGlow 2s infinite alternate;
+}
+@keyframes floorGlow{
+  0%{transform:translateX(-50%) scaleX(0.95);opacity:0.4;}
+  50%{transform:translateX(-50%) scaleX(1);opacity:0.65;}
+  100%{transform:translateX(-50%) scaleX(0.97);opacity:0.45;}
+}
+
+/* Bike photo */
+.photo-wrap{position:relative; z-index:3; border-radius:18px; overflow:hidden; background:rgba(255,255,255,0.02); box-shadow:0 18px 60px rgba(0,0,0,0.7);}
+.bike-img{
+  width:100%; height:520px; object-fit:cover;
+  transform:translateY(0);
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,0.7)) brightness(1.05);
+  transition:0.4s ease;
+  animation: floatBike 3s ease-in-out infinite;
+}
+.bike-img:hover{transform:translateY(-10px) scale(1.05); filter:drop-shadow(0 15px 30px rgba(0,0,0,0.9)) brightness(1.15);}
+@keyframes floatBike{
+  0%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-10px) scale(1.02);}
+  100%{transform:translateY(0) scale(1);}
+}
+
+/* Spec card */
+.spec{
+  border-radius:18px; padding:24px; background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.05); box-shadow:0 10px 40px rgba(0,0,0,0.7);
+  position:relative; transition:0.3s;
+}
+.spec:hover{box-shadow:0 15px 50px rgba(255,30,30,0.6);}
+.spec h1{
+  margin:12px 0 6px; font-size:32px; letter-spacing:1px; text-shadow:0 0 15px rgba(255,30,30,0.5);
+}
+.meta{font-size:14px;color:var(--muted);margin-bottom:12px;}
+.plate{
+  background:#0b0f12; padding:14px; border-radius:12px;
+  border:1px solid rgba(255,255,255,0.05); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); margin-bottom:16px;
+}
+.spec-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.06);}
+.spec-row:last-child{border-bottom:none;}
+.spec-key{color:var(--muted); font-weight:600;}
+.spec-val{color:#fff; font-weight:700;}
+
+/* Buttons */
+.actions{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;}
+.btn-primary{
+  background: linear-gradient(90deg,var(--accent1),var(--accent2));
+  color:#fff;border:none;padding:12px 20px;border-radius:12px;font-weight:700;
+  cursor:pointer; box-shadow:0 8px 25px rgba(255,0,0,0.4); transition:0.3s;
+}
+.btn-primary:hover{box-shadow:0 8px 30px rgba(255,0,0,0.6);}
+.btn-ghost{
+  background:transparent;border:1px solid rgba(255,255,255,0.1);
+  padding:10px 16px;border-radius:10px;color:var(--muted);
+  cursor:pointer; transition:0.3s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,0.1);}
+.back-btn{
+  display:block;margin-top:16px;padding:10px 16px;text-align:center;
+  border:1px solid rgba(255,255,255,0.15); border-radius:10px;
+  color:#ccc;text-decoration:none; transition:0.2s;
+}
+.back-btn:hover{background:rgba(255,255,255,0.1);}
+</style>
+</head>
+<body>
+
+<header>
+  <h2>PKL Motor</h2>
+  <nav>
+    <a href="index.html">Trang chủ</a>
+    <a href="bikes.html">Danh sách xe</a>
+    <a href="contact.html">Liên hệ</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <div class="showroom">
+    <div class="stage">
+      <div class="photo-wrap">
+        <img id="bike-img" class="bike-img" src="" alt="">
+      </div>
+      <div class="floor"></div>
+    </div>
+
+    <aside class="spec">
+      <h1 id="bike-name"></h1>
+      <div class="meta" id="brand-meta"></div>
+
+      <div class="plate">
+        <div class="spec-row"><div class="spec-key">Động cơ</div><div class="spec-val" id="engine"></div></div>
+        <div class="spec-row"><div class="spec-key">Công suất</div><div class="spec-val" id="power"></div></div>
+        <div class="spec-row"><div class="spec-key">Trọng lượng</div><div class="spec-val" id="weight"></div></div>
+        <div class="spec-row"><div class="spec-key">Giá</div><div class="spec-val" id="price"></div></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary" id="buyBtn">MUA NGAY</button>
+        <button class="btn-ghost" id="websiteBtn">Trang hãng xe</button>
+      </div>
+
+      <a href="bikes.html" class="back-btn">← Quay lại danh sách xe</a>
+    </aside>
+  </div>
+</div>
+
+<script>
+const bikes = {
+  r1:{name:"Yamaha R1",brand:"Yamaha",engine:"998cc",power:"200 HP",weight:"199 kg",price:"600.000.000 VNĐ",img:"img/Yamaha R1.jpg",link:"https://www.yamaha-motor.com"},
+  cbr:{name:"Honda CBR1000RR",brand:"Honda",engine:"1000cc",power:"215 HP",weight:"201 kg",price:"700.000.000 VNĐ",img:"img/Honda CBR1000RR.jpg",link:"https://www.honda.com"},
+  zx10r:{name:"Kawasaki ZX-10R",brand:"Kawasaki",engine:"998cc",power:"203 HP",weight:"206 kg",price:"580.000.000 VNĐ",img:"img/Kawasaki ZX-10R.jpg",link:"https://www.kawasaki.com"},
+  harley1:{name:"Harley-Davidson Fat Boy",brand:"Harley-Davidson",engine:"1868cc",power:"92 HP",weight:"317 kg",price:"900.000.000 VNĐ",img:"img/Harley_Fat_Boy.jpg",link:"https://www.harley-davidson.com"},
+  bmw1:{name:"BMW S1000RR",brand:"BMW",engine:"999cc",power:"205 HP",weight:"197 kg",price:"820.000.000 VNĐ",img:"img/BMW_S1000RR.jpg",link:"https://www.bmwmotorcycles.com"},
+  ducati1:{name:"Ducati Panigale V4",brand:"Ducati",engine:"1103cc",power:"214 HP",weight:"198 kg",price:"1.200.000.000 VNĐ",img:"img/Ducati_Panigale_V4.jpg",link:"https://www.ducati.com"},
+  ducati2:{name:"Ducati Streetfighter V4",brand:"Ducati",engine:"1103cc",power:"208 HP",weight:"201 kg",price:"1.050.000.000 VNĐ",img:"img/Ducati_Streetfighter_V4.jpg",link:"https://www.ducati.com"},
+  zx6r:{name:"Kawasaki ZX6R",brand:"Kawasaki",engine:"636cc",power:"128 HP",weight:"196 kg",price:"450.000.000 VNĐ",img:"img/Kawasaki_ZX6R.jpg",link:"https://www.kawasaki.com"}
+};
+
+const id = new URLSearchParams(window.location.search).get("id");
+const b = bikes[id];
+
+if(!b){
+  document.body.innerHTML = "<h1 style='text-align:center;margin-top:40px'>Xe không tồn tại!</h1>";
+} else {
+  document.getElementById("bike-img").src = b.img;
+  document.getElementById("bike-img").alt = b.name;
+  document.getElementById("bike-name").textContent = b.name;
+  document.getElementById("brand-meta").textContent = "Hãng: " + b.brand;
+  document.getElementById("engine").textContent = b.engine;
+  document.getElementById("power").textContent = b.power;
+  document.getElementById("weight").textContent = b.weight;
+  document.getElementById("price").textContent = b.price;
+
+  document.getElementById("websiteBtn").onclick = ()=>window.open(b.link,"_blank");
+  document.getElementById("buyBtn").onclick = ()=>alert("Đã gửi yêu cầu mua xe! Chúng tôi sẽ liên hệ sớm ❤️");
+}
+</script>
+
+</body>
+</html>

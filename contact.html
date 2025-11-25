@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liên hệ - PKL Motor</title>
+<style>
+/* ===================== BODY ===================== */
+body {
+    margin:0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(180deg, #0a0a0a, #111);
+    color: #e8edf7;
+}
+
+/* ===================== HEADER ===================== */
+header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 28px;
+    border-bottom:1px solid rgba(255,0,0,0.2);
+    background: #111;
+}
+header h2 { margin:0; color:#ff1e28; text-shadow:0 0 8px #ff1e28; }
+header nav a {
+    margin-left:16px;
+    color:#aaa;
+    text-decoration:none;
+    font-weight:700;
+    text-transform:uppercase;
+    transition:0.3s;
+}
+header nav a:hover { color:#ff1e28; text-shadow:0 0 8px #ff1e28; }
+
+/* ===================== CONTAINER ===================== */
+.container {
+    max-width:600px;
+    margin:50px auto;
+    padding:20px;
+    background: rgba(255,255,255,0.03);
+    border-radius:20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+/* ===================== TITLE ===================== */
+.container h2 {
+    text-align:center;
+    margin-bottom:25px;
+    font-size:28px;
+    text-shadow: 0 0 8px #ff1e28;
+}
+
+/* ===================== FORM ===================== */
+form {
+    display:flex;
+    flex-direction:column;
+}
+
+form label {
+    margin-bottom:6px;
+    font-weight:700;
+    color:#ff1e28;
+}
+
+form input, form textarea {
+    padding:12px 15px;
+    margin-bottom:18px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color:#fff;
+    font-size:15px;
+    transition:0.3s;
+}
+form input::placeholder,
+form textarea::placeholder {
+    color: #aaa;
+}
+form input:focus,
+form textarea:focus {
+    outline:none;
+    border-color:#ff1e28;
+    box-shadow:0 0 12px rgba(255,30,30,0.6);
+    background: rgba(255,255,255,0.08);
+}
+
+/* ===================== BUTTON ===================== */
+form button {
+    padding:14px 20px;
+    background: linear-gradient(90deg,#ff1e28,#b30000);
+    color:white;
+    font-weight:700;
+    font-size:16px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    box-shadow: 0 8px 25px rgba(255,0,0,0.5);
+    transition:0.3s;
+}
+form button:hover {
+    background: linear-gradient(90deg,#b30000,#ff1e28);
+    transform:scale(1.05);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:640px){
+    .container { margin:30px 15px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h2>PKL Motor</h2>
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="bikes.html">Danh sách xe</a>
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Liên hệ tư vấn</h2>
+
+    <form>
+        <label>Họ tên</label>
+        <input type="text" placeholder="Nhập họ tên">
+
+        <label>Email</label>
+        <input type="email" placeholder="Nhập email">
+
+        <label>Nội dung</label>
+        <textarea rows="5" placeholder="Nhập nội dung"></textarea>
+
+        <button>Gửi</button>
+    </form>
+</div>
+
+</body>
+</html>

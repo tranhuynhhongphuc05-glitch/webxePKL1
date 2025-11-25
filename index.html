@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PKL Motor - Trang chủ</title>
+<style>
+/* ===================== BODY ===================== */
+body {
+    margin:0;
+    font-family: 'Arial Black', Arial, sans-serif;
+    background: #0a0a0a;
+    color: #e8edf7;
+}
+
+/* ===================== HEADER ===================== */
+header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 28px;
+    border-bottom:1px solid rgba(255,0,0,0.2);
+    background: #111;
+}
+header h2 { margin:0; color:#ff1e28; text-shadow:0 0 8px #ff1e28; }
+header nav a {
+    margin-left:16px;
+    color:#aaa;
+    text-decoration:none;
+    font-weight:700;
+    text-transform:uppercase;
+    transition:0.3s;
+}
+header nav a:hover { color:#ff1e28; text-shadow:0 0 8px #ff1e28; }
+
+/* ===================== BUTTON ===================== */
+.btn {
+    display:inline-block;
+    padding:12px 20px;
+    border-radius:10px;
+    background:linear-gradient(90deg,#ff1e28,#b30000);
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+    box-shadow:0 6px 20px rgba(255,0,0,0.6);
+}
+.btn:hover { background:linear-gradient(90deg,#b30000,#ff1e28); transform:scale(1.05); }
+
+/* ===================== BANNER ===================== */
+.banner {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    margin:40px 20px;
+    gap:20px;
+}
+.hero { max-width:500px; }
+.hero h1 { font-size:36px; margin-bottom:10px; text-shadow:0 0 12px #ff1e28; }
+.hero p { margin-bottom:10px; line-height:1.5; }
+
+/* ===================== WOW CARD ===================== */
+.wow-card {
+    height:280px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#0d0d0d,#1a0a0a);
+    box-shadow:0 15px 40px rgba(255,0,0,0.7);
+    flex:1;
+    min-width:320px;
+    transition:0.4s;
+}
+.wow-card:hover { transform:scale(1.02); }
+
+/* Glow phía dưới */
+.wow-card .glow {
+    position:absolute;
+    bottom:20px;
+    width:70%;
+    height:35px;
+    background:rgba(255,30,40,0.6);
+    filter:blur(30px);
+    z-index:1;
+    animation: glowAnim 2s infinite alternate;
+    left:50%;
+    transform:translateX(-50%);
+}
+@keyframes glowAnim {
+    0% { opacity:0.4; transform:scaleX(0.95); }
+    50% { opacity:0.7; transform:scaleX(1); }
+    100% { opacity:0.45; transform:scaleX(0.97); }
+}
+
+/* Xe phóng lên xuống nhẹ */
+.wow-bike {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:90%;
+    height:auto;
+    transform:translate(-50%, -50%) scale(1.2);
+    object-fit:contain;
+    z-index:3;
+    filter: drop-shadow(0 15px 30px rgba(255,0,0,0.7)) brightness(1.1);
+    animation: floatBike 3s ease-in-out infinite;
+    transition:0.4s ease;
+}
+@keyframes floatBike {
+    0% { transform:translate(-50%, -50%) scale(1.2); }
+    50% { transform:translate(-50%, -56%) scale(1.23); }
+    100% { transform:translate(-50%, -50%) scale(1.2); }
+}
+.wow-card:hover .wow-bike {
+    transform:translate(-50%, -60%) scale(1.25);
+    filter: drop-shadow(0 20px 40px rgba(255,0,0,0.9)) brightness(1.25);
+}
+
+/* Nội dung info trên card */
+.wow-card .info {
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    text-align:center;
+    z-index:5;
+    text-shadow:0 3px 12px rgba(0,0,0,0.7);
+}
+.wow-card .info h3 { margin:4px 0 4px; font-size:24px; font-weight:900; }
+.wow-card .info .kicker { font-size:14px; font-weight:700; color:#4cc9ff; margin-bottom:2px; text-transform:uppercase; }
+.wow-card .info .muted { font-size:14px; opacity:0.85; }
+
+/* ===================== MAIN ===================== */
+main.container { max-width:900px; margin:40px auto; padding:0 20px; }
+main h2 { font-size:28px; margin-bottom:12px; text-shadow:0 0 6px #ff1e28; }
+main p { margin-bottom:12px; line-height:1.6; }
+</style>
+</head>
+<body>
+
+<header>
+    <h2>PKL Motor</h2>
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="bikes.html">Danh sách xe</a>
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+</header>
+
+<section class="banner">
+    <div class="hero">
+        <h1>Thế giới Xe Phân Khối Lớn</h1>
+        <p>PKL Motor — tổng hợp những mẫu xe mạnh mẽ, tin tức, đánh giá và cửa hàng.</p>
+        <p><a class="btn" href="bikes.html">Xem các mẫu xe</a></p>
+    </div>
+
+    <div class="wow-card">
+        <div class="glow"></div>
+        <img src="img/featured.jpg" alt="BMW M1000RR" class="wow-bike">
+        <div class="info">
+            <div class="kicker">Mẫu nổi bật</div>
+            <h3>BMW M1000RR</h3>
+            <div class="muted">1000cc · 212 HP · ABS Pro · QuickShift</div>
+        </div>
+    </div>
+</section>
+
+<main class="container">
+    <h2>Giới thiệu</h2>
+    <p>
+        Xe phân khối lớn (PKL) luôn là biểu tượng của sức mạnh, tốc độ và phong cách thể thao.
+        Tại PKL Motor, chúng tôi mang đến cho bạn một thế giới của những cỗ máy mạnh mẽ – từ
+        sportbike, nakedbike cho đến cruiser đậm chất Mỹ.
+    </p>
+    <p>
+        Chúng tôi cập nhật liên tục các mẫu xe mới nhất từ những thương hiệu hàng đầu như
+        Yamaha, Honda, Kawasaki, Ducati, BMW và Harley-Davidson. Mỗi dòng xe đều đi kèm thông tin chi tiết:
+        công suất, động cơ, trọng lượng, giá bán và hình ảnh sắc nét giúp bạn dễ dàng lựa chọn.
+    </p>
+    <p>
+        Ngoài ra, PKL Motor còn mang đến tin tức, bài đánh giá thực tế, so sánh thông số và gợi ý xe phù hợp
+        cho từng nhu cầu như đi tour, chạy phố hay trải nghiệm tốc độ. Nếu bạn là người đam mê mô tô,
+        đây chính là nơi dành cho bạn.
+    </p>
+    <a href="bikes.html" class="btn">Khám phá ngay</a>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danh sách xe PKL</title>
+<style>
+    /* ================= BODY ================= */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(180deg,#0a0a0a,#111);
+        color: #e8edf7;
+    }
+
+    header {
+        background: #111;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    header h2 {
+        margin: 0 0 10px 0;
+        color: #ff1e28;
+        text-shadow: 0 0 12px rgba(255,30,30,0.6);
+    }
+    header nav a {
+        margin: 0 15px;
+        color: #e8edf7;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+    header nav a:hover { color: #4cc9ff; }
+
+    /* ================= CONTAINER ================= */
+    .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    .container h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 32px;
+        color: #ff1e28;
+        text-shadow: 0 0 10px rgba(255,30,30,0.6);
+    }
+
+    /* ================= GRID DANH SÁCH XE ================= */
+    .bike-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 25px;
+    }
+
+    .bike {
+        background: rgba(255,255,255,0.03);
+        padding: 15px;
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        border:1px solid rgba(255,255,255,0.05);
+        overflow: hidden;
+        position: relative;
+    }
+    .bike:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(255,30,30,0.6);
+    }
+
+    .bike img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s, filter 0.3s;
+    }
+    .bike img:hover {
+        transform: scale(1.05);
+        filter: brightness(1.1);
+    }
+
+    .bike h3 {
+        margin: 12px 0 5px 0;
+        color: #ff1e28;
+        font-size: 20px;
+        text-shadow: 0 0 8px rgba(255,30,30,0.6);
+    }
+    .bike p {
+        margin: 5px 0;
+        font-size: 15px;
+        color: #ccc;
+    }
+
+    .button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 18px;
+        background: linear-gradient(90deg,#ff1e28,#b30000);
+        color: #fff;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 6px 18px rgba(255,0,0,0.5);
+        transition: transform 0.3s, filter 0.3s;
+    }
+    .button:hover {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+    }
+
+    @media(max-width:768px){
+        .bike img { height:140px; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h2>PKL Motor</h2>
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="bikes.html">Danh sách xe</a>
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Các dòng xe nổi bật</h2>
+
+    <div class="bike-list">
+
+        <!-- Ví dụ 3 xe, bạn có thể thêm hết như cũ -->
+        <div class="bike">
+            <img src="img/Yamaha R1.jpg" alt="Yamaha R1">
+            <h3>Yamaha R1</h3>
+            <p>Hãng: Yamaha</p>
+            <p>Giá: 600.000.000 VNĐ</p>
+            <a class="button" href="detail.html?id=r1">Xem chi tiết</a>
+        </div>
+
+        <div class="bike">
+            <img src="img/Honda CBR1000RR.jpg" alt="Honda CBR1000RR">
+            <h3>Honda CBR1000RR</h3>
+            <p>Hãng: Honda</p>
+            <p>Giá: 700.000.000 VNĐ</p>
+            <a class="button" href="detail.html?id=cbr">Xem chi tiết</a>
+        </div>
+
+        <div class="bike">
+            <img src="img/Kawasaki ZX-10R.jpg" alt="Kawasaki ZX-10R">
+            <h3>Kawasaki ZX-10R</h3>
+            <p>Hãng: Kawasaki</p>
+            <p>Giá: 580.000.000 VNĐ</p>
+            <a class="button" href="detail.html?id=zx10r">Xem chi tiết</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
